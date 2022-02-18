@@ -12,17 +12,27 @@
       }
 
       .centered {
-        width: 800px;
-        background-color: #ccc;
+        width: 1440px;
         margin: 0 auto;
       }
+      
+      .main-content:{
+        display: flex;
+        flex-direction: "row" 
+      }
+      
 
     </style>
   </head>
   <body>
     <div class="content">
       <div class="centered">
-        <img alt="Frouple logo" src="frouple.png"/>
+        <div class="main-content">
+           <div class="left-pane">
+             <img style="logo" alt="Frouple logo" src="frouple.png"/>
+          </div>
+          <div class="right-pane">Hello</div>
+        </div>
       </div>
   </div>
   </body>
