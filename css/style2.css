@@ -17,9 +17,9 @@ body {
     padding: 0 80px 80px 80px;
     display: flex;
     flex-direction: row;
-    background-image: url("../img/background.png");
+    background-image: url("../img/side_img.png");
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: left;
     background-size: contain;
 }
 
