@@ -4,46 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Frouple - meet couples with similar hobbies</title>
-    <style type="text/css">
-      .content {
-        width: 100%;
-      }
-
-      .centered {
-        width: 1440px;
-        margin: 0 auto;
-      }
-      
-      .main-content:{
-        display: flex;
-        flex-direction: column;
-      }
-      
-      .logo: {
-        width: 503px;
-        height: 166px;
-      }
-      
-    </style>
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="content">
-      <div class="centered">
-        <div class="main-content">
-           <div class="left-pane">
-             <img class="logo" alt="Frouple logo" src="frouple.png"/>
-             <div class="headline">Meet couples with similar hobbies.</div>
-          </div>
-          <div class="right-pane">
-            <img alt="Phone" src="phone.png"/>
-            <div class="download">
-              <img class="logo" alt="App store" src="appstore.png"/>
-              <img class="logo" alt="Google store" src="google.png"/>
+	<div class="container">
+        <div class="container-inner">
+            <div class="left-side">
+                <img src="img/frouple.png" alt="Frouple logo" class="logo">
+                <div class="subheadline">
+                    Meet couples with similar hobbies.
+                </div>
+                <div class="icons">
+                    <a href="https://www.apple.com">
+                       <img src="img/apple.png" alt="IOS App store image" class="apple">
+                    </a> 
+                    <a href="https://www.google.com">
+                        <img src="img/google.png" alt="Google play store image" class="google">
+                    </a>
+                </div>
             </div>
-          </div>
+            <div class="right-side">
+                <img src="img/phone.png" alt="Phone image" class="phone" />
+            </div>
         </div>
-      </div>
-  </div>
+    </div>
   </body>
 </html>
+
