@@ -99,14 +99,14 @@ body {
 }
 
 .apple{
-    width: 35%;
+    width: 30%;
     transition: top ease .4s; /* Animation */
     position: relative;
     animation: 2s animation-subheadline ease-out;
 }
 
 .google{
-    width: 35%;
+    width: 30%;
     transition: top ease .4s; /* Animation */
     position: relative;
     animation: 2s animation-subheadline ease-out;
