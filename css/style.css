@@ -107,6 +107,7 @@ body {
 
 .google{
     width: 30%;
+    opacity: 0.9;
     transition: top ease .4s; /* Animation */
     position: relative;
     animation: 2s animation-subheadline ease-out;
@@ -114,6 +115,7 @@ body {
 
 .phone{
     width: 80%;
+    opacity: 0.9;
     animation: animation-phone 4s ease-out;
     cursor: pointer;
     transition: transform .2s; /* Animation */
