@@ -57,6 +57,11 @@ body {
     animation: 4s animation-subheadline ease-out;
 }
 
+.subheadline {
+       font-weight: 600
+}
+
+
 @keyframes animation-headline {
 0% {
     opacity: 0;
