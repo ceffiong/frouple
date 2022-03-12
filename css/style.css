@@ -37,7 +37,7 @@ body {
     font-size: 85px;
     font-weight: bolder;
     max-width: 400px; 
-    color: #fff;
+    color: #D0F5DA;
     position: relative;
     /*animation: headline-animation 2s */
     animation: 4s animation-headline ease-out;
@@ -48,12 +48,12 @@ body {
     font-weight: lighter;
     max-width: 300px;
     margin-top: 10px;
-    color: #fff;  
+    color: #D0F5DA;  
     animation: 4s animation-subheadline ease-out;
 }
 
 .bold_subheadline {
-       font-weight: 400
+    font-weight: 400
 }
 
 
@@ -99,14 +99,14 @@ body {
 }
 
 .apple{
-    width: 30%;
+    width: 32%;
     transition: top ease .4s; /* Animation */
     position: relative;
     animation: 2s animation-subheadline ease-out;
 }
 
 .google{
-    width: 30%;
+    width: 32%;
     opacity: 0.9;
     transition: top ease .4s; /* Animation */
     position: relative;
@@ -309,15 +309,37 @@ body {
     .slide-image{
         width: 100%;
     }
-    
-
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 769px) {
     .container-inner{
         padding: 20px;
-        /*background-color: red;*/
+        /*background-color: green; */
+    }
+
+    .google, .apple{
+        width: 40%;
+    }
+
+    .logo-image-div{
+        margin-bottom: 70px;
+    }
+
+    .left-side{
+        margin-top: 0px;
+    }
+
+    .right-side{
+        margin-top: 0px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 870px) {
+    .container-inner{
+        padding: 20px;
+        /*background-color: red; */
     }
     
     .left-side{
@@ -358,19 +380,27 @@ body {
         margin-bottom: 40px;
     }
 
+    .google, .apple{
+        width: 34%;
+    }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .container-inner{
         padding: 20px;
-        /*background-color: blueviolet;*/
+        /*background-color: blueviolet; */
     }
 
     /* About Frouple page */
 
     .container-inner-app{
         padding: 20px;
+    }
+
+    .google, .apple{
+        width: 32%;
     }
 }
 
