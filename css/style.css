@@ -37,7 +37,7 @@ body {
     font-size: 85px;
     font-weight: bolder;
     max-width: 400px; 
-    color: #D0F5DA;
+    color: #fff;
     position: relative;
     /*animation: headline-animation 2s */
     animation: 4s animation-headline ease-out;
@@ -48,7 +48,7 @@ body {
     font-weight: lighter;
     max-width: 300px;
     margin-top: 10px;
-    color: #D0F5DA;  
+    color: #fff;  
     animation: 4s animation-subheadline ease-out;
 }
 
@@ -288,6 +288,14 @@ body {
             opacity: 1;
             transform: translateY(0%);
         }
+    }
+
+    .subheadline{
+        margin-bottom: 0px;
+    }
+
+    .icons{
+        margin-top: 50px;
     }
 
     /* About frouple page */
