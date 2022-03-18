@@ -95,18 +95,22 @@ body {
 }
 
 .icons{
-    margin-top: 100px
+    margin-top: 100px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .apple{
-    width: 32%;
+    width: 30%;
     transition: top ease .4s; /* Animation */
     position: relative;
     animation: 2s animation-subheadline ease-out;
 }
 
 .google{
-    width: 32%;
+    width: 30%;
     opacity: 0.9;
     transition: top ease .4s; /* Animation */
     position: relative;
@@ -119,10 +123,6 @@ body {
     animation: animation-phone 4s ease-out;
     cursor: pointer;
     transition: transform .2s; /* Animation */
-}
-
-a {
-    text-decoration: none;
 }
 
 .phone:hover{
@@ -300,6 +300,16 @@ a {
 
     .icons{
         margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .apple, .google{
+        min-width: 80%;
+    }
+
+    .google{
+        margin-top: 30px;
     }
 
     /* About frouple page */
@@ -328,10 +338,6 @@ a {
     .container-inner{
         padding: 20px;
         /*background-color: green; */
-    }
-
-    .google, .apple{
-        width: 40%;
     }
 
     .logo-image-div{
@@ -391,11 +397,6 @@ a {
     .slide-text{
         margin-bottom: 40px;
     }
-
-    .google, .apple{
-        width: 34%;
-    }
-
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -409,10 +410,6 @@ a {
 
     .container-inner-app{
         padding: 20px;
-    }
-
-    .google, .apple{
-        width: 32%;
     }
 }
 
