@@ -199,7 +199,7 @@
                 <div class="subheadline-screen gold">
                     Get additional cool features when you upgrade.
                 </div>
-                <div class="next" onclick="nextScreen('index')">
+                <div class="next" onclick="nextScreen('contact')">
                     <img src="img/next.png" alt="" class="next-icon gold">
                 </div>
             </div>
@@ -208,6 +208,40 @@
             </div>
         </div>
         
+	  </div>
+	  <div class="container-contact" id="#contact">
+      <div class="container-inner-screen">
+        <div class="left-screen">
+          <div class="headline-screen contact">Contact</div>
+          <div class="subheadline-screen contact">
+            We would love to hear from you.
+          </div>
+          <div class="next" onclick="nextScreen('index')">
+            <img src="img/next.png" alt="" class="next-icon contact" />
+          </div>
+        </div>
+        <div class="right-screen">
+          <div class="form-div">
+            <div id="form-email-label">Email</div>
+            <input type="text" id="form-email" /><br />
+            <div id="form-message-label">Message</div>
+            <textarea id="form-message" rows="8" cols="50"></textarea>
+            <div id="form-submit" onclick="sendEmail()">Send</div>
+
+            <div class="alert">
+              <span
+                class="closebtn"
+                onclick="this.parentElement.style.display='none';"
+                >&times;</span
+              >
+              <div class="alert-content">
+                <strong id="alert-strong">Danger!</strong> Indicates a dangerous
+                or potentially negative action.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="js/script.js"></script>
   </body>
