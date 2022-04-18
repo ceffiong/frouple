@@ -1,5 +1,5 @@
 function animateIndex(page){
-  console.log(document.getElementsByClassName(page))
+  //console.log(document.getElementsByClassName(page))
   document.getElementsByClassName(page)[0].style.animation="animation-headline-screen 2s ease-out";
   document.getElementsByClassName(page)[1].style.animation="animation-subheadline-index 2s ease-out";
   document.getElementsByClassName(page)[2].style.animation = "animation-next-screen 2s ease-out";
