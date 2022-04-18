@@ -26,3 +26,67 @@ function nextScreen(nextpage){
   }, 4000)
 }
 
+function sendEmail() {
+  var email = document.getElementById("form-email").value;
+  var message = document.getElementById("form-message").value;
+
+  if (email == "") {
+    document.getElementsByClassName("alert-content")[0].innerHTML =
+      "<strong>Error!</strong> Please enter email.";
+    document.getElementsByClassName("alert")[0].style.display = "block";
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    document.getElementsByClassName("alert-content")[0].innerHTML =
+      "<strong>Error!</strong> Invalid email.";
+    document.getElementsByClassName("alert")[0].style.display = "block";
+    return;
+  }
+
+  if (message === "") {
+    document.getElementsByClassName("alert-content")[0].innerHTML =
+      "<strong>Error!</strong> Please enter message.";
+    document.getElementsByClassName("alert")[0].style.display = "block";
+    return;
+  }
+
+  //AWS SES + AWS Gateway REST API + Lamda function
+  sendEmailAPI(email, message);
+}
+
+async function sendEmailAPI(replyto, message) {
+  try {
+    var param = {
+      sender: "noreply@frouple.com",
+      recipient: "talkwithcharles@gmail.com",
+      subject: "Frouple web contact submission",
+      content: message,
+      replytoemail: replyto,
+    };
+
+    const response = await fetch(
+      "https://7222lpqp7l.execute-api.eu-central-1.amazonaws.com/prod",
+      {
+        method: "POST",
+        body: param, // string or object
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    );
+
+    await response.json();
+
+    document.getElementsByClassName("alert")[0].style.backgroundColor =
+      "#04AA6D";
+    document.getElementsByClassName("alert-content")[0].innerHTML =
+      "<strong>Success!</strong> Your message has been sent!.";
+    document.getElementsByClassName("alert")[0].style.display = "block";
+  } catch (error) {
+    document.getElementsByClassName("alert-content")[0].innerHTML =
+      "<strong>Error!</strong> Could not send email. You can use your <a href= 'mailto:contact@frouple.com'>email client</a> to contact us!";
+    document.getElementsByClassName("alert")[0].style.display = "block";
+  }
+}
