@@ -96,7 +96,7 @@ function sendEmail() {
 }
 
 async function sendEmailAPI(replytoemail, message) {
-  let param = `{"sender": "noreply@frouple.com", "recipient": "contact@frouple.com", "subject": "Frouple web contact form submission", "content": "${message}", "replytoemail": "${replytoemail}"}`;
+  let param = `{"content": "${message}", "replytoemail": "${replytoemail}"}`;
 
   let response = await fetch(
     "https://7222lpqp7l.execute-api.eu-central-1.amazonaws.com/prod",
