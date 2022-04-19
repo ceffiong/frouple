@@ -75,6 +75,18 @@
     transform: scale(1.1);
 }
 
+/* contact
+.form-div{
+    width: 50%; 
+    border: 2px solid #E9F3FB; 
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: lighter;
+    padding-bottom: 50px;
+}
+*/
+
 .form-div{
     border: 2px solid #E9F3FB;
     border-radius: 20px;
@@ -239,7 +251,7 @@ input, textarea {
 
 /* Extra small devices (phones, 768px and down) */
 @media only screen and (max-width: 768px) {
-    .container-home, .container-feed, .container-interest, .container-message, .container-match, .container-chat{
+    .container-home, .container-feed, .container-interest, .container-message, .container-match, .container-chat, .container-contact{
         height: auto;
     }
 
@@ -287,6 +299,12 @@ input, textarea {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .form-div{
+        margin-left: 0px;
+        width: 80%;
+        text-align: left;
     }
 }
 
