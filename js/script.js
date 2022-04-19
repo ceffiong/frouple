@@ -83,8 +83,8 @@ function sendEmail() {
         "<strong>Success!</strong> Your message has been sent!";
       document.getElementsByClassName("alert")[0].style.display = "block";
     
-    //document.getElementById("form-email").value = "";
-    //document.getElementById("form-message").value = "";
+    document.getElementById("form-email").value = "";
+    document.getElementById("form-message").value = "";
 
     })
     .catch((error) => {
