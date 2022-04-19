@@ -1,29 +1,46 @@
-function animateIndex(page){
-  //console.log(document.getElementsByClassName(page))
-  document.getElementsByClassName(page)[0].style.animation="animation-headline-screen 2s ease-out";
-  document.getElementsByClassName(page)[1].style.animation="animation-subheadline-index 2s ease-out";
-  document.getElementsByClassName(page)[2].style.animation = "animation-next-screen 2s ease-out";
-  document.getElementsByClassName(page)[3].style.animation = "animation-phone-screen 2s ease-out";
-
+function animateIndex(page) {
+  //console.log(document.getElementsByClassName(page));
+  document.getElementsByClassName(page)[0].style.animation =
+    "animation-headline-screen 2s ease-out";
+  document.getElementsByClassName(page)[1].style.animation =
+    "animation-subheadline-index 2s ease-out";
+  document.getElementsByClassName(page)[2].style.animation =
+    "animation-next-screen 2s ease-out";
+  document.getElementsByClassName(page)[3].style.animation =
+    "animation-phone-screen 2s ease-out";
 }
 
-function nextScreen(nextpage){
+function nextScreen(nextpage) {
   //scroll to next page
-  document.getElementById('#'+nextpage).scrollIntoView();
+  document.getElementById("#" + nextpage).scrollIntoView();
 
   //annimate elements on the page
-  document.getElementsByClassName(nextpage)[0].style.animation="animation-headline-screen 3s ease-out";
-  document.getElementsByClassName(nextpage)[1].style.animation="animation-subheadline-screen 3s ease-out";
-  document.getElementsByClassName(nextpage)[2].style.animation = "animation-next-screen 3s ease-out";
-  document.getElementsByClassName(nextpage)[3].style.animation = "animation-phone-screen 2s ease-out";
+  document.getElementsByClassName(nextpage)[0].style.animation =
+    "animation-headline-screen 3s ease-out";
+  document.getElementsByClassName(nextpage)[1].style.animation =
+    "animation-subheadline-screen 3s ease-out";
+  document.getElementsByClassName(nextpage)[2].style.animation =
+    "animation-next-screen 3s ease-out";
+
+  if (nextpage !== "contact") {
+    document.getElementsByClassName(nextpage)[3].style.animation =
+      "animation-phone-screen 2s ease-out";
+  } else {
+    document.getElementsByClassName("form-div")[0].style.animation =
+      "animation-phone-screen 2s ease-out";
+  }
 
   //remove annimation style
   setTimeout(() => {
     document.getElementsByClassName(nextpage)[0].style.animation = null;
     document.getElementsByClassName(nextpage)[1].style.animation = null;
     document.getElementsByClassName(nextpage)[2].style.animation = null;
-    document.getElementsByClassName(nextpage)[3].style.animation = null;
-  }, 4000)
+    if (nextpage !== "contact") {
+      document.getElementsByClassName(nextpage)[3].style.animation = null;
+    } else {
+      document.getElementsByClassName("form-div")[0].style.animation = null;
+    }
+  }, 4000);
 }
 
 function validateEmail(email) {
@@ -58,41 +75,35 @@ function sendEmail() {
   }
 
   //AWS SES + AWS Gateway REST API + Lamda function
-  sendEmailAPI(email, message);
+  sendEmailAPI(email, message)
+    .then((data) => {
+      document.getElementsByClassName("alert")[0].style.backgroundColor =
+        "#04AA6D";
+      document.getElementsByClassName("alert-content")[0].innerHTML =
+        "<strong>Success!</strong> Your message has been sent!";
+      document.getElementsByClassName("alert")[0].style.display = "block";
+    })
+    .catch((error) => {
+      console.log(error);
+      document.getElementsByClassName("alert-content")[0].innerHTML =
+        "<strong>Server error!</strong> <a href= 'mailto:contact@frouple.com'>Use email client</a>";
+      document.getElementsByClassName("alert")[0].style.display = "block";
+    });
 }
 
-async function sendEmailAPI(replyto, message) {
-  try {
-    var param = {
-      sender: "noreply@frouple.com",
-      recipient: "talkwithcharles@gmail.com",
-      subject: "Frouple web contact submission",
-      content: message,
-      replytoemail: replyto,
-    };
+async function sendEmailAPI(replytoemail, message) {
+  let param = `{"sender": "noreply@frouple.com", "recipient": "contact@frouple.com", "subject": "Frouple web contact form submission", "content": "${message}", "replytoemail": "${replytoemail}"}`;
 
-    const response = await fetch(
-      "https://7222lpqp7l.execute-api.eu-central-1.amazonaws.com/prod",
-      {
-        method: "POST",
-        body: param, // string or object
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    );
+  let response = await fetch(
+    "https://7222lpqp7l.execute-api.eu-central-1.amazonaws.com/prod",
+    {
+      method: "POST",
+      body: param,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
-    await response.json();
-
-    document.getElementsByClassName("alert")[0].style.backgroundColor =
-      "#04AA6D";
-    document.getElementsByClassName("alert-content")[0].innerHTML =
-      "<strong>Success!</strong> Your message has been sent!.";
-    document.getElementsByClassName("alert")[0].style.display = "block";
-  } catch (error) {
-    document.getElementsByClassName("alert-content")[0].innerHTML =
-      "<strong>Error!</strong> Could not send email. You can use your <a href= 'mailto:contact@frouple.com'>email client</a> to contact us!";
-    document.getElementsByClassName("alert")[0].style.display = "block";
-  }
+  let data = await response;
 }
